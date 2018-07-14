@@ -244,7 +244,13 @@ function isChief(msg)
     let chefsRougesRole = msg.guild.roles.find('name', 'Chefs Rouges');
     let chefsJaunesRole = msg.guild.roles.find('name', 'Chefs Jaunes');
     let chefsBleusRole = msg.guild.roles.find('name', 'Chefs Bleus');
-    if(msg.member.roles.has(chefsBleusRole.id) || msg.member.roles.has(chefsJaunesRole.id) || msg.member.roles.has(chefsRougesRole.id)){
+    if(msg.member.roles.has(chefsBleusRole.id)){
+        return true;
+    }
+    if(msg.member.roles.has(chefsJaunesRole.id)){
+        return true;
+    }
+    if(msg.member.roles.has(chefsRougesRole.id)){
         return true;
     }
     return false;
