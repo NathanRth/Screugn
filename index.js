@@ -26,13 +26,14 @@ bot.on('message', function(message){
 
     switch(cmd){
     case '!test':
-        if(isChief(message)){
+        if(isAdmin(message)){
             message.reply("hello admin");
         }else{
             message.reply("you dont have permission to use this command")
         }
     break;
     case '!add':
+    if(isAdmin(message) || isChief(message)){
         try{
             db_add(faction, val);
         }catch(e){
@@ -40,8 +41,10 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+' points.');
+    }
     break;
     case '!rem':
+    if(isAdmin(message) || isChief(message)){
         try{
             db_rem(faction, val);
         }catch(e){
@@ -49,8 +52,10 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+ ' points.');
+    }
     break;
     case '!set':
+    if(isAdmin(message)){
         try{
             db_set(faction, val);
         }catch(e){
@@ -58,6 +63,7 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+ ' points.');
+    }
     break;
     case '!get':
         try{
@@ -69,6 +75,7 @@ bot.on('message', function(message){
         message.reply('La faction **'+faction+'** a '+ db_get(faction)+ ' points.');
     break;
     case '!create':
+    if(isAdmin(message)){
         try{
             db_create(faction);
         }catch(e){
@@ -76,8 +83,10 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a été crée !');
+    }
     break;
     case '!delete':
+    if(isAdmin(message)){
         try{
             db_delete(faction);
         }catch(e){
@@ -85,6 +94,7 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a été supprimée !');
+    }
     break;
     case '!score':
         message.reply(score());
@@ -222,7 +232,7 @@ function maxOf(obj)
     
 function isAdmin(msg)
 {
-    let adminRole = msg.guild.roles.find('name','Admin');
+    let adminRole = msg.guild.roles.find('name','MrP');
     if(msg.member.roles.has(adminRole.id)){
         return true;
     }
