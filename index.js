@@ -29,7 +29,7 @@ bot.on('message', function(message){
         if(isAdmin(message)){
             message.reply("hello admin");
         }else{
-            message.reply("you dont have permission to use this command")
+            message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
         }
     break;
     case '!add':
@@ -41,6 +41,8 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+' points.');
+    }else{
+        message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
     }
     break;
     case '!rem':
@@ -52,6 +54,8 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+ ' points.');
+    }else{
+        message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
     }
     break;
     case '!set':
@@ -63,6 +67,8 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a maintenant '+ db_get(faction)+ ' points.');
+    }else{
+        message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
     }
     break;
     case '!get':
@@ -83,6 +89,8 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a été crée !');
+    }else{
+        message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
     }
     break;
     case '!delete':
@@ -94,6 +102,8 @@ bot.on('message', function(message){
             break;
         }
         message.reply('La faction **'+faction+'** a été supprimée !');
+    }else{
+        message.reply("Vous n'avez pas les droits nécessaires à l'utilisation de cette commande !")
     }
     break;
     case '!score':
