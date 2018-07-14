@@ -1,0 +1,24 @@
+{
+  "factions": [
+    {
+      "name": "blue",
+      "points": 18
+    },
+    {
+      "name": "red",
+      "points": 22
+    },
+    {
+      "name": "yellow",
+      "points": 0
+    },
+    {
+      "name": "cataglope",
+      "points": 50
+    },
+    {
+      "name": "green",
+      "points": 12
+    }
+  ]
+}
